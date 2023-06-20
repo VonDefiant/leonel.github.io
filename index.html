@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Leonel Hernandez</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(to bottom, #000428, #004e92);
+            color: #fff;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .content {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin: 15px;
+        }
+
+        .content img {
+            margin-right: 20px;
+        }
+
+        #counter {
+            position: absolute;
+            top: 0;
+            right: 200px;
+            font-family: 'Copperplate', 'Copperplate Gothic Light', sans-serif;
+            font-size: 5em;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 0px;
+        }
+
+        @media screen and (max-width: 600px) {
+            body {
+                font-size: 18px;
+            }
+
+            .content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .content img {
+                margin-bottom: 20px;
+            }
+
+            #counter {
+                position: initial;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Felicidades</h1>
+    </header>
+    <div class="content">
+        <img src="foto.jpg" alt="Descripción de la imagen">
+        <div id="counter"></div>
+    </div>
+    <script>
+        var startDate = new Date("2016-06-20");
+        var now = new Date();
+        var years = now.getFullYear() - startDate.getFullYear();
+
+        document.getElementById("counter").innerHTML = years + " años";
+    </script>
+</body>
+</html>
