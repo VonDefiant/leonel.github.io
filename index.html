@@ -21,10 +21,10 @@
         }
 
         .content {
-            position: relative;
             display: flex;
-            align-items: center;
-            justify-content: flex-start;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-around;
             margin: 15px;
         }
 
@@ -32,51 +32,113 @@
             margin-right: 20px;
         }
 
-        #counter {
-            position: absolute;
-            top: 0;
-            right: 200px;
-            font-family: 'Copperplate', 'Copperplate Gothic Light', sans-serif;
-            font-size: 5em;
-            font-weight: bold;
-            text-align: center;
-            margin-top: 0px;
+        .counterContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
         }
+
+        .counter {
+            font-family: 'Copperplate', 'Copperplate Gothic Light', sans-serif;
+            font-size: 4em;
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .counterYears {
+            margin-bottom: 10px;
+            margin-right: 230px;
+        }
+
+        .counterMonths {
+            margin-bottom: 10px;
+            margin-right: 230px;
+        }
+        .counterDays {
+            margin-bottom: 10px;
+            margin-right: 230px;
+        }
+
+        .counterWeeks {
+            margin-bottom: 10px;
+            margin-right: 230px;
+        }
+        .counterHours {
+            margin-bottom: 10px;
+            margin-right: 230px;
+        }
+
+        .counterMinutes {
+            margin-bottom: 10px;
+            margin-right: 230px;
+        }
+
+        /* Agregar aquí otros estilos personalizados para los demás contadores. */
 
         @media screen and (max-width: 600px) {
             body {
                 font-size: 18px;
             }
-
+        
             .content {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center;
             }
-
-            .content img {
-                margin-bottom: 20px;
+        
+            .counterContainer {
+                align-items: center;
             }
-
-            #counter {
-                position: initial;
+        
+            .counterYears, 
+            .counterMonths, 
+            .counterDays, 
+            .counterWeeks, 
+            .counterHours, 
+            .counterMinutes {
+                margin-right: 0px;
             }
         }
+        
     </style>
 </head>
 <body>
     <header>
-        <h1>Felicidades</h1>
+        <h1> LEONEL HERNANDEZ</h1>
     </header>
     <div class="content">
         <img src="foto.jpg" alt="Descripción de la imagen">
-        <div id="counter"></div>
+        <div class="counterContainer">
+            <div id="counterYears" class="counter counterYears"></div>
+            <div id="counterMonths" class="counter counterMonths"></div>
+            <div id="counterWeeks" class="counter counterWeeks"></div>
+            <div id="counterDays" class="counter counterDays"></div>
+            <div id="counterHours" class="counter counterHours"></div>
+            <div id="counterMinutes" class="counter counterMinutes"></div>
+        </div>
     </div>
     <script>
         var startDate = new Date("2016-06-20");
         var now = new Date();
-        var years = now.getFullYear() - startDate.getFullYear();
 
-        document.getElementById("counter").innerHTML = years + " años";
+        var diff = now - startDate; // difference in milliseconds
+
+        var years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+        document.getElementById("counterYears").innerHTML = years + " años";
+
+        var months = Math.floor(diff / (1000 * 60 * 60 * 24 * 30));
+        document.getElementById("counterMonths").innerHTML = months + " meses";
+
+        var weeks = Math.floor(diff / (1000 * 60 * 60 * 24 * 7));
+        document.getElementById("counterWeeks").innerHTML = weeks + " semanas";
+
+        var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        document.getElementById("counterDays").innerHTML = days + " días";
+
+        var hours = Math.floor(diff / (1000 * 60 * 60));
+        document.getElementById("counterHours").innerHTML = hours + " horas";
+
+        var minutes = Math.floor(diff / (1000 * 60));
+        document.getElementById("counterMinutes").innerHTML = minutes + " minutos";
     </script>
 </body>
 </html>
