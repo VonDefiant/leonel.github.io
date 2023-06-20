@@ -29,53 +29,32 @@
         }
 
         .content img {
+            max-width: 100%;
+            height: auto;
             margin-right: 20px;
         }
 
         .counterContainer {
             display: flex;
             flex-direction: column;
-            align-items: flex-end;
+            align-items: flex-start;
         }
 
         .counter {
             font-family: 'Copperplate', 'Copperplate Gothic Light', sans-serif;
             font-size: 4em;
             font-weight: bold;
-            text-align: right;
+            text-align: left;
         }
 
-        .counterYears {
-            margin-bottom: 10px;
-            margin-right: 230px;
+        .esperanzaLink {
+            display: block; 
+            text-align: left; 
+            margin-top: 20px; 
+            color: #fff;
         }
 
-        .counterMonths {
-            margin-bottom: 10px;
-            margin-right: 230px;
-        }
-        .counterDays {
-            margin-bottom: 10px;
-            margin-right: 230px;
-        }
-
-        .counterWeeks {
-            margin-bottom: 10px;
-            margin-right: 230px;
-        }
-        .counterHours {
-            margin-bottom: 10px;
-            margin-right: 230px;
-        }
-
-        .counterMinutes {
-            margin-bottom: 10px;
-            margin-right: 230px;
-        }
-
-        /* Agregar aquí otros estilos personalizados para los demás contadores. */
-
-        @media screen and (max-width: 300px) {
+        @media screen and (max-width: 400px) {
             body {
                 font-size: 18px;
             }
@@ -89,13 +68,8 @@
                 align-items: center;
             }
         
-            .counterYears, 
-            .counterMonths, 
-            .counterDays, 
-            .counterWeeks, 
-            .counterHours, 
-            .counterMinutes {
-                margin-right: 0px;
+            .esperanzaLink {
+                text-align: center;
             }
         }
         
@@ -108,20 +82,20 @@
     <div class="content">
         <img src="foto.jpg" alt="Descripción de la imagen">
         <div class="counterContainer">
-            <div id="counterYears" class="counter counterYears"></div>
-            <div id="counterMonths" class="counter counterMonths"></div>
-            <div id="counterWeeks" class="counter counterWeeks"></div>
-            <div id="counterDays" class="counter counterDays"></div>
-            <div id="counterHours" class="counter counterHours"></div>
-            <div id="counterMinutes" class="counter counterMinutes"></div>
-            <a href="cartaespe.jpg" target="_blank" style="display: block; text-align: right; margin-top: 20px; color: #fff;">Carta Esperanza</a>
+            <div id="counterYears" class="counter"></div>
+            <div id="counterMonths" class="counter"></div>
+            <div id="counterWeeks" class="counter"></div>
+            <div id="counterDays" class="counter"></div>
+            <div id="counterHours" class="counter"></div>
+            <div id="counterMinutes" class="counter"></div>
+            <a href="cartaespe.jpg" target="_blank" class="esperanzaLink">Carta Esperanza</a>
         </div>
     </div>
     <script>
         var startDate = new Date("2016-06-20");
         var now = new Date();
 
-        var diff = now - startDate; // difference in milliseconds
+        var diff = now - startDate; 
 
         var years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
         document.getElementById("counterYears").innerHTML = years + " años";
